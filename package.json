@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^1.2.1",
     "cra-template": "1.2.0",
     "eslint": "8.22.0",
     "pretty-format": "18.0.0",
