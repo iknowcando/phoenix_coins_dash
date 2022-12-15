@@ -1,0 +1,15 @@
+.footerBlock {
+    display: flex;
+    background-color: rgb(37, 37, 37);
+    padding: 10px 100px;
+    justify-content: space-between;
+}
+
+.contactsContainer {
+    display: flex;
+    align-items: center;
+}
+
+.techContainer {
+    display: flex;
+}
