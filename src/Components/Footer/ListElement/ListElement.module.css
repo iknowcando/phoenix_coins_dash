@@ -1,0 +1,12 @@
+.listElementStyle {
+    list-style-type: none;
+}
+
+.linkElement {
+    text-decoration: none;
+    color: #A12B32;
+}
+
+.linkElement:hover {
+    color: darkred;
+}

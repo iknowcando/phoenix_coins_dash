@@ -1,0 +1,12 @@
+.ElementStyle {
+    padding: 10px;
+}
+
+.linkContact {
+    text-decoration: none;
+    color: #A12B32;
+}
+
+.linkContact:hover {
+    color: darkred;
+}
