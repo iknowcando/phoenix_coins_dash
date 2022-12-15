@@ -1,6 +1,78 @@
 .containerPage {
+    display: block;
+    color: #FFFFFF;
     width: 80%;
-    background-color: #ea95c7;
-    margin-right: auto;
     margin-left: auto;
+    margin-right: auto;
 }
+.thead{
+    box-shadow: 0px  0px 0px 1px rgb(0, 0, 0);
+    height: 30px;
+}
+.row{
+    box-shadow: 0px 1px 1px #000, 0px -1px 1px #000;
+    height: 70px;
+}
+.row:hover{
+    color:#dca233
+}
+.cel {
+    padding: 6px 5px 0;
+    height: 40px;
+}
+.presentBlock{
+    text-align: center;
+}
+.tableContainer{
+    margin: 40px 0;
+}
+.plus{
+    color: #D7FF0A;
+}
+.plus:hover{
+    color: #a5c426;
+}
+.minus{
+    color: #A12B32;
+}
+.minus:hover{
+    color: #772628;
+}
+
+.colRank{
+    width: 5%;
+    min-width: 5%;
+}
+.colSymbol{
+
+    width: 11%;
+    min-width: 11%;
+}
+.colName{
+    width: 13%;
+    min-width: 13%;
+}
+.colMarketCup{
+    width: 8%;
+    min-width: 8%;
+
+
+}
+.colPrice {
+    width: 15%;
+    min-width: 15%;
+}
+.Volume{
+    width: 13%;
+    min-width: 13%
+}
+.Supply{
+    width: 13%;
+    min-width: 13%;
+}
+.Change{
+    width: 13%;
+    min-width: 13%;
+}
+
+
