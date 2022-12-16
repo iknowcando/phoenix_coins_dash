@@ -23,6 +23,12 @@
 .presentBlock{
     text-align: center;
 }
+.up{
+    background-color: #caec3a;
+}
+.low{
+    background-color:#A12B32;
+}
 .tableContainer{
     margin: 40px 0;
 }
