@@ -1,12 +1,13 @@
 import axios from "axios";
 
 const coinsAsset= axios.create({
-    baseURL: `https://api.coincap.io/v2/assets`
+    baseURL: `https://coin360.com`
 })
 
 export const coinsAPI = {
-    async getCoins(limit = 100, offset = 0) {
-        const response = await coinsAsset.get(`?limit=${limit}&offset=${offset}`)
+    async getCoins(ue='USD',limit = 101,timeSlice='24h') {
+        const response = await coinsAsset.get(`/site-api/coins?currency=${ue}&limit=${limit}&period=${timeSlice}`)
+        console.log(response.data.data)
         return response.data.data
     }
 }

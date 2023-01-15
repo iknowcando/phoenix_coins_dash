@@ -1,5 +1,5 @@
 import style from './CoinsTablePage.module.css'
-import {useEffect, useRef, useState} from "react";
+import React,{useEffect, useRef, useState} from "react";
 import {coinsAPI} from "../../API/API";
 
 const  usePrevious=(value)=>{
@@ -8,6 +8,7 @@ const  usePrevious=(value)=>{
     const ref = useRef();
     // Store current value in ref
     useEffect(() => {
+
         ref.current = value;
     }, [value]); // Only re-run if value changes
     // Return previous value (happens before update in useEffect above)
@@ -18,16 +19,13 @@ const  CoinsTablePage = (props) => {
 
     const [state, setState] = useState([]);
 
-
-
-
-
     const prevState = usePrevious(state)
     useEffect(() => {
+
         coinsAPI.getCoins().then(request =>
             setState(request))
-
     }, [state])
+
     return (
         <div className={style.containerPage}>
             <div className={style.presentBlock}>
@@ -66,20 +64,37 @@ const  CoinsTablePage = (props) => {
             </thead>
             <tbody>
             {state.map((el,i) =>{
-                let changeStatus = Math.round(el.changePercent24Hr*100)/100;
 
-                let up = (prevState[i]?.priceUsd || state[i].priceUsd)  < state[i].priceUsd
-                let low = (prevState[i]?.priceUsd || state[i].priceUsd) > state[i].priceUsd
+                const up = (prevState[i]?.p || state[i].p)  < state[i].p
+                const low = (prevState[i]?.p || state[i].p) > state[i].p
+                /*{
+                    "c": "coin",
+                    "ch": -3.43,
+                    "em": 19235250,
+                    "mc": 323193764288.77,
+                    "mcr": 1,
+                    "n": "Bitcoin",
+                    "p": 16802.16,
+                    "pb": 16802.16,
+                    "pr": "SHA256",
+                    "s": "BTC",
+                    "sl": "bitcoin-btc",
+                    "st": "Base",
+                    "v": 10870322047.15
+                }*!/*/
 
-                return (<tr className={style.row} key={el.id}>
-                    <th className={style.cel}>{el.rank}</th>
-                    <th className={style.cel}>{el.symbol}</th>
-                    <th className={style.cel}>{el.name}</th>
-                    <th className={`${low? style.low:null} ${up? style.up:null} ${style.cel}`}>{Math.round(el.marketCapUsd*100)/100}</th>
-                    <th className={style.cel}>{Math.round(el.priceUsd*100)/100}</th>
-                    <th className={style.cel}>{Math.round(el.volumeUsd24Hr*100)/100}</th>
-                    <th className={style.cel}>{Math.round(el.supply*100)/100}</th>
-                    {changeStatus > 0? <th className={`${style.plus} ${style.cel}`}>+{changeStatus}%</th>:<th className={`${style.minus} ${style.cel}`}>{changeStatus}%</th>}
+                return (<tr className={style.row} key={`${el.s}-${el.sl}`}>
+                    <th className={style.cel}>{el.mcr}</th>
+                    <th className={style.cel}>
+                        <div className={style.symbolBlock}>
+                            <div><img className={style.cLogo} alt={`logo ${el.name}`} src={`https://coin360.com/icons/slug-coins/32x32/${el.sl}.png`}></img></div>
+                            <div>{el.s}</div></div></th>
+                    <th className={style.cel}>{el.n}</th>
+                    <th className={`${style.cel}`}>{el.mc}</th>
+                    <th className={`${low ? style.low : null} ${up ? style.up : null} ${style.cel}`}>{el.p}</th>
+                    <th className={style.cel}>{el.v}</th>
+                    <th className={style.cel}>{el.em}</th>
+                    {el.ch > 0? <th className={`${low ? style.low : null} ${up ? style.up : null} ${style.cel} ${style.plus} ${style.cel}`}>+{el.ch}%</th>:<th className={`${low ? style.low : null} ${up ? style.up : null} ${style.cel} ${style.minus} ${style.cel}`}>{el.ch}%</th>}
                 </tr>)})
             }
             </tbody>

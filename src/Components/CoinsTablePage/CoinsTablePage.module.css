@@ -14,8 +14,22 @@
     height: 70px;
 }
 .row:hover{
-    color:#dca233
+    color:#dca233;
+
 }
+.symbolBlock{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.cLogo {
+    width: 15px;
+    height: 15px;
+    vertical-align: -1.5px;
+    margin-right: 6px;
+}
+
 .cel {
     padding: 6px 5px 0;
     height: 40px;
